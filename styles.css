@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding:0;
+    height: 100vh;
+}
+.main {
+    display:flex;
+    flex-direction: column;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid grey;
+    padding:20px;
+}
+
+.logo {
+    color: navy;
+}
+
+header .button {
+    background-color: orange;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: navy;
+}
+
+.donate-receive {
+    display: flex;
+    justify-content: space-around;   
+}
+
+.donate .receive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
