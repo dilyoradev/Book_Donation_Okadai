@@ -1,3 +1,13 @@
+/*
+background-color: #E4C59E;
+button: #803D3B;
+welcome-text: #803D3B;
+donate: #03A6A1
+
+
+
+*/
+
 * {
     box-sizing: border-box;
 }
@@ -6,42 +16,81 @@ body {
     margin: 0;
     padding:0;
     height: 100vh;
+    font-family: "Suisse", sans-serif;
 }
 .main {
     display:flex;
     flex-direction: column;
+    background-color: beige;
+    height: 100vh;
 }
 header {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid grey;
     padding:20px;
+    background-color:  #E4C59E;
 }
 
 .logo {
-    color: navy;
+    color: #03A6A1;
+    font-size: 25px;
+    font-weight: bold;
+    
 }
 
 header .button {
-    background-color: orange;
+    background-color: #803D3B;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 80px;
 }
 
 .welcome {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: navy;
+    color: #4A102A;
+;
 }
 
 .donate-receive {
     display: flex;
-    justify-content: space-around;   
+    justify-content: space-around; 
+    margin: 20px;
 }
 
-.donate .receive {
+
+.donate, .receive{
+    flex: 1 1 300px;
+    max-width: 500px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
+    background-color: #E4C59E;
     align-items: center;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+    color: #4A102A;
 }
 
+.donate button{
+    background-color: #03A6A1;
+}
 
+.receive button {
+    background-color: #FF4F0F;
+}
+
+.donate button, .receive button {
+    border: none;
+    padding: 15px;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 20px;
+    margin: 20px;
+    cursor: pointer;
+    color: white;
+
+}
