@@ -16,12 +16,13 @@ body {
     margin: 0;
     padding:0;
     height: 100vh;
+    background-image: url("img/book-images.avif");
     font-family: "Suisse", sans-serif;
 }
 .main {
     display:flex;
     flex-direction: column;
-    background-color: beige;
+    /* background-color: beige; */
     height: 100vh;
 }
 
@@ -29,7 +30,6 @@ header {
     display: flex;
     justify-content: space-between;
     padding:20px;
-    background-color:  #E4C59E;
 }
 
 .logo {
@@ -40,8 +40,8 @@ header {
 }
 
 header .button {
-    background-color: #803D3B;
-    color: white;
+    background-color: whitesmoke;
+    color: #803D3B;
     padding: 10px 30px;
     border: none;
     border-radius: 80px;
@@ -51,7 +51,7 @@ header .button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #4A102A;
+    color: whitesmoke;
 ;
 }
 
@@ -68,7 +68,7 @@ header .button {
     min-width: 200px;
     display: flex;
     flex-direction: column;
-    background-color: #E4C59E;
+    background-color: whitesmoke;
     align-items: center;
     padding: 20px;
     border-radius: 30px;
@@ -77,11 +77,11 @@ header .button {
 }
 
 .donate button{
-    background-color: #03A6A1;
+    background-color: #8FA937;
 }
 
 .receive button {
-    background-color: #FF4F0F;
+    background-color: #AB494E;
 }
 
 .donate button, .receive button, .loginBtn, .signupBtn {
@@ -92,7 +92,7 @@ header .button {
     border-radius: 20px;
     margin: 20px;
     cursor: pointer;
-    color: white;
+    color: whitesmoke;
 }
 
 .login-page, .signup-page {
@@ -102,7 +102,7 @@ header .button {
 
 .login-container, .signup-container {
     display: flex;
-    background-color: #E4C59E;
+    background-color: whitesmoke;
     align-items: center;
     justify-content: center;
     padding: 10px 60px;
@@ -122,6 +122,10 @@ header .button {
     font-size: 20px;
 }
 
+.login h1, .login p, .signup h1 {
+    color: #803D3B;
+}
+
 input {
     width: 100%;
     padding: 10px 15px;
@@ -133,4 +137,19 @@ input {
 .header a {
     text-decoration: none;
 }
+
+.gobackBtn-wrapper {
+    display: flex;
+    align-items: left;
+}
+
+.gobackBtn {
+    margin: 20px 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+
 
