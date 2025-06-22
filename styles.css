@@ -16,7 +16,7 @@ body {
     margin: 0;
     padding:0;
     height: 100vh;
-    background-image: url("img/book-images.avif");
+    background-image: url("img/book-img.png");
     font-family: "Suisse", sans-serif;
 }
 .main {
@@ -33,7 +33,7 @@ header {
 }
 
 .logo {
-    color: #03A6A1;
+    color: whitesmoke;
     font-size: 25px;
     font-weight: bold;
     
