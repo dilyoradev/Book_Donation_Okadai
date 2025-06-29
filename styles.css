@@ -3,8 +3,7 @@ background-color: #E4C59E;
 button: #803D3B;
 welcome-text: #803D3B;
 donate: #03A6A1
-
-
+border-radius: 8px;
 
 */
 
@@ -62,7 +61,7 @@ header .button {
 }
 
 
-.donate, .receive{
+.donate, .receive {
     flex: 1 1 300px;
     max-width: 500px;
     min-width: 200px;
@@ -84,7 +83,7 @@ header .button {
     background-color: #AB494E;
 }
 
-.donate button, .receive button, .loginBtn, .signupBtn {
+.donate button, .receive button, .loginBtn, .signupBtn, .search-btn, .request-btn{
     border: none;
     padding: 15px;
     text-align: center;
@@ -95,13 +94,14 @@ header .button {
     color: whitesmoke;
 }
 
-.login-page, .signup-page {
+.login-page, .signup-page, .receive-page {
   justify-content: center;
   align-items: center;
 }
 
-.login-container, .signup-container {
+.login-container, .signup-container, .receive-container {
     display: flex;
+    flex-direction: column;
     background-color: whitesmoke;
     align-items: center;
     justify-content: center;
@@ -109,7 +109,7 @@ header .button {
     border-radius: 40px;
 }
 
-.login, .signup{
+.login, .signup {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -122,7 +122,8 @@ header .button {
     font-size: 20px;
 }
 
-.login h1, .login p, .signup h1 {
+
+.login h1, .login p, .signup h1, .find-book h1{
     color: #803D3B;
 }
 
@@ -151,5 +152,74 @@ input {
     font-weight: bold;
 }
 
+.current-books {
+    display: flex;
+    justify-content: space-around;
+}
 
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 25px;
+    padding: 20px;
+}
 
+.book-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.book-card img {
+    height: 200px;;
+}
+
+.book-title {
+    text-align: center;
+}
+
+.search-btn {
+  background-color: #803D3B;
+  padding: 5px 10px;
+  font-size: 15px;
+  margin:0;
+  margin-left: auto;
+}
+.request-btn {
+  background-color: #803D3B;
+  padding: 5px 10px;
+  font-size: 15px;
+  margin:0;
+}
+
+.receive-container {
+    align-items: flex-start;
+
+}
+.find-book {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px;
+    padding: 10px 20px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    color: #803D3B;
+}
+
+.form-row select {
+    border: 1px solid #803D3B;
+    border-radius: 8px;
+    color: #803D3B;
+    font-size: 15px;
+}
+.book-title {
+    color: #803D3B;
+    font-size: 20px;
+}
