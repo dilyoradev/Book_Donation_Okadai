@@ -8,7 +8,7 @@ def index():
 
 @app.route("/donate")
 def donate():
-    return rendeer_template("donate.html")
+    return render_template("donate.html")
 
 @app.route("/receive")
 def receive():

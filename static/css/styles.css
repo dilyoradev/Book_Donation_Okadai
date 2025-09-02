@@ -102,7 +102,7 @@ header .button {
 
 }
 
-.login-page, .signup-page, .receive-page, .book-details-page, .book-quality-page {
+.login-page, .signup-page, .receive-page, .book-details-page, .book-quality-page, .donate-page {
 
   justify-content: center;
   align-items: center;
@@ -110,7 +110,7 @@ header .button {
 
 }
 
-.login-container, .signup-container, .receive-container, .book-details-container, .book-quality-container {
+.login-container, .signup-container, .receive-container, .book-details-container, .book-quality-container, .donate-page-container {
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
