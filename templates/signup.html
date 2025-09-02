@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sign Up</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-<body>
-  <div id="header"></div>
-  <script src="scripts/include.js"></script>
-    <div class="gobackBtn-wrapper">
-      <a class="gobackBtn" href="index.html">Go Back</a>
-    </div>
+{% extends 'base.html' %}
+
+{% block body %}
+
   <div class="main signup-page">    
       <div class="signup-container">
         
@@ -42,5 +32,5 @@
      </div>
 
   </div>
-</body>
-</html>
+
+{% endblock %}

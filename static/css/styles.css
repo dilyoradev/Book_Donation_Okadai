@@ -11,11 +11,14 @@ border-radius: 8px;
     box-sizing: border-box;
 }
 
+body, html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding:0;
-    height: 100vh;
-    background-image: url("img/book-img.png");
+    background-image: url("../img/book-img.png");
     font-family: "Suisse", sans-serif;
 }
 .main {
@@ -103,6 +106,8 @@ header .button {
 
   justify-content: center;
   align-items: center;
+  padding: 30px;
+
 }
 
 .login-container, .signup-container, .receive-container, .book-details-container, .book-quality-container {

@@ -1,25 +1,13 @@
 <!-- This page is for book description. It will also have a comment -->
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Book Description and Comment Page</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
+{% extends 'base.html' %}
 
-    <body>
-      <div id="header"></div>
-      <script src="scripts/include.js"></script>
-      <div class="gobackBtn-wrapper">
-      <a class="gobackBtn" href="index.html">Go Back</a>
-      </div> 
-      
+{% block body %}
+
       <div class="main book-details-page">
         <div class="book-details-container">
           <h1>Book Details:</h1>
             <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="img/books/book-a.png" alt="Book A">
+              <img src="{{ url_for('static', filename = '/img/books/book-a.png' )}}" alt="Book A">
               <div>
               <div class="book-title">Book A</div>
 
@@ -83,5 +71,5 @@
         </div>
 
       </div>
-    </body>
-</html>
+
+{% endblock %}

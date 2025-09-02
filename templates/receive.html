@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Receive a Book</title>
-      <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-      <div id="header"></div>
-      <script src="scripts/include.js"></script>
-      <div class="gobackBtn-wrapper">
-      <a class="gobackBtn" href="index.html">Go Back</a>
-      </div>
+{% extends 'base.html' %}
+
+{% block body %}
+
       <div class="main receive-page">
         <div class="receive-container">
           <form class="find-book">
@@ -48,27 +38,27 @@
           <div class="book-grid" id="book-grid">
 
             <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="img/books/book-a.png" alt="Book A">
+              <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
               <div class="book-title">Book A</div>
-              <button class="requestBtn">Request Button</button>
+              <a href="{{ url_for('book_details') }}" class="requestBtn">Request Button</a>
             </div>
             <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="img/books/book-a.png" alt="Book A">
+              <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
               <div class="book-title">Book A</div>
-              <button class="requestBtn">Request Button</button>
+              <a href="{{ url_for('book_details') }}" class="requestBtn">Request Button</a>
             </div>
             <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="img/books/book-a.png" alt="Book A">
+              <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
               <div class="book-title">Book A</div>
-              <button class="requestBtn">Request Button</button>
+              <a href="{{ url_for('book_details') }}" class="requestBtn">Request Button</a>
             </div>
             <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="img/books/book-a.png" alt="Book A">
+              <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
               <div class="book-title">Book A</div>
-              <button class="requestBtn">Request Button</button>
+              <a href="{{ url_for('book_details') }}" class="requestBtn">Request Button</a>
             </div>
          </div>
        </div>
       </div>  
-    </body>
-</html>
+
+{% endblock %}

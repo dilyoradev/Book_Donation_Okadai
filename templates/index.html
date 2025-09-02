@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Book Donation System</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="scripts/include.js" defer></script>
-    </head>
-    <body>
+{% extends 'base.html' %}
+
+{% block goback %}
+{% endblock %}
+
+{% block body %}
         <div class="main">
-        <div id="header"></div>
-        <script src="scripts/include.js"></script>
+        <!-- <div id="header"></div>
+        <script src="static/js/include.js"></script> -->
         <div class="welcome">
             <h1>Welcome to Book Donation</h1>
             <h2>What would you like to do today?</h2>
@@ -19,15 +15,15 @@
             <div class="donate">
                 <h1>Donate a Book</h1>
                 <h2>Share your books with others</h2>
-                <a class="donateBtn">Donate</a>
+                <a class="donateBtn" href="{{ url_for('donate') }}">Donate</a>
             </div>
             <div class="receive">
                 <h1>Receive a Book</h1>
                 <h2>Find and request books you need</h2>
-                <a class="receiveBtn" href="receive.html">Receive</a>
+                <a class="receiveBtn" href="{{ url_for('receive') }}">Receive</a>
             </div>
         </div>
         </div>
-        
-    </body>
-</html>
+
+{% endblock %}
+

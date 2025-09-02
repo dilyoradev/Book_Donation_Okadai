@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Log In</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+{% block body %}
 
-<body>
-  <div id="header"></div>
-  <script src="scripts/include.js"></script>
-    <div class="gobackBtn-wrapper">
-      <a class="gobackBtn" href="index.html">Go Back</a>
-    </div>
   <div class="main login-page">
     <div class="login-container">
 
@@ -26,11 +14,10 @@
         <input type="password" id="password" name="password" placeholder="Password">
 
         <button class="loginBtn" type="submit">Log In</button>
-        <p class="signup-prompt">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <p class="signup-prompt">Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
       </form>
     </div>
 
   </div>
-</body>
 
-</html>
+{% endblock %}

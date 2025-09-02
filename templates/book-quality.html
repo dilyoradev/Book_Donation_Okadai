@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Quality Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <div id="header"></div>
-    <script src="scripts/include.js"></script>
-    <div class="gobackBtn-wrapper">
-        <a class="gobackBtn" href="index.html">Go Back</a>
-    </div>
+{% block body%}
 
     <div class="main book-quality-page">
         <div class="book-quality-container">
@@ -47,6 +34,6 @@
         </div>
 
     </div>
-</body>
 
-</html>
+
+{% endblock %}
