@@ -1,2 +1,2 @@
-# Book_Donation_System
-This is the book donation system for Okadai students.
+# Book Donation Website for Okayama University Students
+This website will enable Okayama University students to be able to donate books and request books.
