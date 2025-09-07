@@ -22,3 +22,4 @@ class Login(db.Model):
 
     def _repr_(self):
         return f"<User {self.email}>"
+

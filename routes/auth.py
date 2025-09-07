@@ -38,6 +38,6 @@ def signup():
         return render_template("/signup.html", users=users)
 
 
-@auth_bp.route("/login")
+@auth_bp.route("/login", method=["GET", "POST"])
 def login():
     return render_template("login.html")
