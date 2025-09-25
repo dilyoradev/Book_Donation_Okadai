@@ -1,5 +1,5 @@
 # Handles Signup and Login
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, session
 from werkzeug.security import generate_password_hash
 from models import db, Signup
 
@@ -29,7 +29,7 @@ def signup():
         try:
             db.session.add(new_user)
             db.session.commit()
-            return redirect(url_for("login"))
+            return redirect(url_for("auth.login"))
         except Exception as e:
             return f"There was an issue signing you up: {e}"
     else:
@@ -38,6 +38,6 @@ def signup():
         return render_template("/signup.html", users=users)
 
 
-@auth_bp.route("/login", method=["GET", "POST"])
+@auth_bp.route("/login", methods=["GET", "POST"])
 def login():
     return render_template("login.html")
