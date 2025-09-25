@@ -40,4 +40,11 @@ def signup():
 
 @auth_bp.route("/login", methods=["GET", "POST"])
 def login():
+    if request.from == "POST":
+        email = request.form["email"]
+        password = request.form["password"]
+
+        #Look up for the user
+        user = Signup.query.filter_by(email=email).first()
+        if user and check_password
     return render_template("login.html")
