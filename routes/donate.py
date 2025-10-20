@@ -1,7 +1,38 @@
-from flask import Blueprint, render_template
+import os
+from flask import Blueprint, render_template, request, current_app
+from werkzeug.utils import secure_filename
+from models import db, Book
+
 
 donate_bp = Blueprint("donate", __name__)
 
-@donate_bp.route("/donate")
+@donate_bp.route("/donate", methods=["GET", "POST"])
 def donate():
+    if request.method == "POST":
+        book_name = request.form["book_name"]
+        book_author = request.form["book_author"]
+        faculty = request.form["faculty"]
+        book_image = request.files["book_image"]
+    
+        if book_image:
+            # Make file safe and store it
+            filename = secure_filename(book_image.filename)
+            image_path = os.path.join("static/uploads", filename)
+            book_image.save(os.path.join(current_app.root_path, image_path))
+        else:
+            image_path = None
+
+        # Save to database
+        new_book = Book(
+            book_name = book_name,
+            book_author = book_author,
+            faculty = faculty,
+            book_image = image_path
+            )
+
+        db.session.add(new_book)
+        db.session.commit()
+
+        return "Book Donated Successfully!"
+    
     return render_template("donate.html")
