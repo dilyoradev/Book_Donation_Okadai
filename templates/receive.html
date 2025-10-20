@@ -6,6 +6,9 @@
         <div class="receive-container">
           <form class="find-book">
             <h1>Find a Book</h1>
+            <label for="find-book">Search for book:</label>
+            <input type="text" name="find_book" id="find-name" placeholder="Enter Book Name:" required>
+            <input type="text" name="find_author" id="find-author" placeholder="Enter Book Author" required>
             <div class="form-row">
               <label for="faculty">Choose your faculty:</label>
               <select name="faculty" id="faculty">
@@ -24,8 +27,6 @@
                 <option value="gdp">Discovery Program for Global Program</option>
             </select>
             </div>
-            <!-- <label for="find-book">Enter the book name:</label> -->
-            <input type="text" name="find-book" id="find-name" placeholder="Search for book...">
             <button class="searchBtn">Search</button>
             <!-- <ul>
               <li><a href="img/books/book-a.png">Book A</a></li>
