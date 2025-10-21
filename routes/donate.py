@@ -2,6 +2,8 @@ import os
 from flask import Blueprint, render_template, request, current_app
 from werkzeug.utils import secure_filename
 from models import db, Book
+from datetime import datetime
+from flask_login import current_user, login_required
 
 
 donate_bp = Blueprint("donate", __name__)
@@ -27,7 +29,9 @@ def donate():
             book_name = book_name,
             book_author = book_author,
             faculty = faculty,
-            book_image = image_path
+            book_image = image_path,
+            date_added = datetime.now(),
+            # user_id = current_user.id
             )
 
         db.session.add(new_book)

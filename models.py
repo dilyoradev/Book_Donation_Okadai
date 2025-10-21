@@ -24,7 +24,8 @@ class Book(db.Model):
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
 
     # link to a user
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    # user = db.relationship("User", backref="books")
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True)
     # user = db.Column("User", backref=db.backref("books", lazy=True))
 
 
