@@ -10,6 +10,7 @@
     <div class="logo">Book Donation</div> 
     <a href="{{ url_for('auth.login') }}" type="button" class="button" id="main-loginBtn">Log In</a> 
 </header>
+
 <div class="gobackBtn-wrapper">
     {% block goback %}
     <a class="gobackBtn" href="{{ url_for('index')}}">Go Back</a>
@@ -17,17 +18,16 @@
 </div>
 
  
-<!-- ✅ Flash messages area -->
+<!-- Flash messages area -->
   <div class="container mt-3">
     {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        {% endfor %}
-      {% endif %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     {% endwith %}
   </div>
 

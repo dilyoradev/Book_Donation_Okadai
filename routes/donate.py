@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, render_template, request, current_app
+from flask import Blueprint, render_template, request, current_app, flash
 from werkzeug.utils import secure_filename
 from models import db, Book
 from datetime import datetime
@@ -37,6 +37,6 @@ def donate():
         db.session.add(new_book)
         db.session.commit()
 
-        return "Book Donated Successfully!"
+        flash(f"{book_name} Book Donated Successfully!", "success")
     
     return render_template("donate.html")
