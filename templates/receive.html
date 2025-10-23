@@ -37,8 +37,17 @@
           </form>
 
           <div class="book-grid" id="book-grid">
-
-            <div class="book-card" data-title="Book A" data-faculty="Engineering">
+            {% for book in books %}
+            <div class="book-card" data-title="{{ book.book_name}}" data-faculty="{{ book.faculty }}">
+              <img src="{{url_for('static', filename=book.book_image.split('static/')[-1]) }}" alt="{{ book.book_name }}">
+              <div class="book-title">{{ book.book_name }}</div>
+              <div class="book-author">by {{ book.book_author }}</div>
+              <div class="book-faculty">{{ book.faculty }}</div>
+              <a href="#" class="requestBtn">Request Book</a>
+            {% endfor %}
+              <!-- <a href="{{ url_for('books.book_details') }}" class="requestBtn">Request Button</a> -->
+            </div>
+            <!-- <div class="book-card" data-title="Book A" data-faculty="Engineering">
               <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
               <div class="book-title">Book A</div>
               <a href="{{ url_for('books.book_details') }}" class="requestBtn">Request Button</a>
@@ -52,12 +61,7 @@
               <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
               <div class="book-title">Book A</div>
               <a href="{{ url_for('books.book_details') }}" class="requestBtn">Request Button</a>
-            </div>
-            <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
-              <div class="book-title">Book A</div>
-              <a href="{{ url_for('books.book_details') }}" class="requestBtn">Request Button</a>
-            </div>
+            </div> -->
          </div>
        </div>
       </div>  

@@ -40,3 +40,5 @@ def donate():
         flash(f"{book_name} Book Donated Successfully!", "success")
     
     return render_template("donate.html")
+
+
