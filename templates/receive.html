@@ -43,7 +43,7 @@
               <div class="book-title">{{ book.book_name }}</div>
               <div class="book-author">by {{ book.book_author }}</div>
               <div class="book-faculty">{{ book.faculty }}</div>
-              <a href="#" class="requestBtn">Request Book</a>
+              <a href="{{ url_for('receive.book_details') }}" class="requestBtn">Request Book</a>
             {% endfor %}
               <!-- <a href="{{ url_for('books.book_details') }}" class="requestBtn">Request Button</a> -->
             </div>
