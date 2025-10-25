@@ -116,7 +116,6 @@ header .button {
   justify-content: center;
   align-items: center;
   padding: 30px;
-
 }
 
 .login-container, .signup-container, .receive-container, .book-details-container, .book-quality-container, .donate-page-container {
@@ -177,9 +176,15 @@ input {
 }
 
 .book-grid {
+    border: 1px solid blue;
+}
+
+.book-grid {
     display: flex;
     flex-wrap: wrap;
+    width:100%;
     justify-content: space-around;
+    align-content: flex-start;
     gap: 25px;
     padding: 20px;
 }
@@ -188,14 +193,27 @@ input {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 1 1 220px;   /* allows shrinking and wrapping */
+    max-width: 250px;  /* optional: cap size */
+    box-sizing: border-box;
+    border: 1px solid red;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #E4C59E;
+    height: 400px;
 }
 
 .book-card img {
-    height: 200px;;
+    height: 60%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
-.book-title {
+.book-title, .book-author, .book-faculty {
     text-align: center;
+    word-wrap: break;
+    max-width: 100%;
 }
 
 .searchBtn {

@@ -1,69 +1,50 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<div class="main receive-page">
+  <div class="receive-container">
+    
+    <form class="find-book">
+      <h1>Find a Book</h1>
+      <label for="find-book">Search for book:</label>
+      <input type="text" name="find_book" id="find-name" placeholder="Enter Book Name:" required>
+      <input type="text" name="find_author" id="find-author" placeholder="Enter Book Author" required>
+      
+      <div class="form-row">
+        <label for="faculty">Choose your faculty:</label>
+        <select name="faculty" id="faculty">
+          <option value="">All Faculties</option>
+          <option value="letters">School of Letters</option>
+          <option value="education">School of Education</option>
+          <option value="law">Faculty of Law</option>
+          <option value="economics">Faculty of Economics</option>
+          <option value="sceince">School of Science</option>
+          <option value="medical">Medical School</option>
+          <option value="dental">Dental School</option>
+          <option value="pharm">School of Pharmaceutical Sciences</option>
+          <option value="engineering">School of Engineering</option>
+          <option value="science-technology">School of Environmental Science of Technology</option>
+          <option value="agriculture">School of Agriculture</option>
+          <option value="gdp">Discovery Program for Global Program</option>
+        </select>
+      </div>
+      <button class="searchBtn">Search</button>
+    </form>
 
-      <div class="main receive-page">
-        <div class="receive-container">
-          <form class="find-book">
-            <h1>Find a Book</h1>
-            <label for="find-book">Search for book:</label>
-            <input type="text" name="find_book" id="find-name" placeholder="Enter Book Name:" required>
-            <input type="text" name="find_author" id="find-author" placeholder="Enter Book Author" required>
-            <div class="form-row">
-              <label for="faculty">Choose your faculty:</label>
-              <select name="faculty" id="faculty">
-                <option value="">All Faculties</option>
-                <option value="letters">School of Letters</option>
-                <option value="education">School of Education</option>
-                <option value="law">Faculty of Law</option>
-                <option value="economics">Faculty of Economics</option>
-                <option value="sceince">School of Science</option>
-                <option value="medical">Medical School</option>
-                <option value="dental">Dental School</option>
-                <option value="pharm">School of Pharmaceutical Sciences</option>
-                <option value="engineering">School of Engineering</option>
-                <option value="science-technology">School of Environmental Science of Technology</option>
-                <option value="agriculture">School of Agriculture</option>
-                <option value="gdp">Discovery Program for Global Program</option>
-            </select>
-            </div>
-            <button class="searchBtn">Search</button>
-            <!-- <ul>
-              <li><a href="img/books/book-a.png">Book A</a></li>
-              <li><a href="img/books/book-b.png">Book B</a></li>
-              <li><a href="img/books/book-c.png">Book C</a></li>
-              <li><a href="img/books/book-d.png">Book D</a></li>
-            </ul> -->
-          </form>
-
-          <div class="book-grid" id="book-grid">
-            {% for book in books %}
-            <div class="book-card" data-title="{{ book.book_name}}" data-faculty="{{ book.faculty }}">
-              <img src="{{url_for('static', filename=book.book_image.split('static/')[-1]) }}" alt="{{ book.book_name }}">
-              <div class="book-title">{{ book.book_name }}</div>
-              <div class="book-author">by {{ book.book_author }}</div>
-              <div class="book-faculty">{{ book.faculty }}</div>
-              <a href="{{ url_for('receive.book_details') }}" class="requestBtn">Request Book</a>
-            {% endfor %}
-              <!-- <a href="{{ url_for('books.book_details') }}" class="requestBtn">Request Button</a> -->
-            </div>
-            <!-- <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
-              <div class="book-title">Book A</div>
-              <a href="{{ url_for('books.book_details') }}" class="requestBtn">Request Button</a>
-            </div>
-            <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
-              <div class="book-title">Book A</div>
-              <a href="{{ url_for('books.book_details') }}" class="requestBtn">Request Button</a>
-            </div>
-            <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="{{url_for('static', filename = 'img/books/book-a.png') }}" alt="Book A">
-              <div class="book-title">Book A</div>
-              <a href="{{ url_for('books.book_details') }}" class="requestBtn">Request Button</a>
-            </div> -->
-         </div>
-       </div>
-      </div>  
-
+    <div class="book-grid" id="book-grid">
+      {% for book in books %}
+      <div class="book-card" data-title="{{ book.book_name}}" data-faculty="{{ book.faculty }}">
+        {% if book.book_image %}
+          <img src="{{url_for('static', filename=book.book_image.split('static/')[-1]) }}" alt="{{ book.book_name }}">
+        {% endif %}
+        <div class="book-title">{{ book.book_name }}</div>
+        <div class="book-author">by {{ book.book_author }}</div>
+        <div class="book-faculty">{{ book.faculty }}</div>
+        <a href="{{ url_for('receive.book_details') }}" class="requestBtn">Request Book</a>
+      </div>
+        {% endfor %}
+    </div>
+    
+  </div>
+</div>
 {% endblock %}
