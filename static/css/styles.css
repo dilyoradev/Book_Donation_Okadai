@@ -220,11 +220,20 @@ input {
     border-radius: 6px;
 }
 
+.book-title {
+    color: #803D3B;
+    font-size: 20px;
+    text-align: center;
+    margin: 2px 0;
+    font-size: clamp(12px, 2vw, 16px); 
+}
+
 .book-title, .book-author, .book-faculty {
     flex: 1;
     text-align: center;
     word-wrap: break;
     max-width: 100%;
+    font-size: clamp(10px, 1.8vw, 14px);
 }
 
 .searchBtn {
@@ -270,10 +279,7 @@ input {
     color: #803D3B;
     font-size: 15px;
 }
-.book-title {
-    color: #803D3B;
-    font-size: 20px;
-}
+
 
 a {
     text-decoration: none;
