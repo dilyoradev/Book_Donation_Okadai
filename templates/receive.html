@@ -37,9 +37,13 @@
         {% if book.book_image %}
           <img src="{{url_for('static', filename=book.book_image.split('static/')[-1]) }}" alt="{{ book.book_name }}">
         {% endif %}
-        <div class="book-title">{{ book.book_name }}</div>
-        <div class="book-author">by {{ book.book_author }}</div>
-        <div class="book-faculty">{{ book.faculty }}</div>
+        
+        <div class="book-info">
+          <div class="book-title">{{ book.book_name }}</div>
+          <div class="book-author">by {{ book.book_author }}</div>
+          <div class="book-faculty">{{ book.faculty }}</div>
+        </div>
+
         <a href="{{ url_for('receive.book_details') }}" class="requestBtn">Request Book</a>
       </div>
         {% endfor %}
