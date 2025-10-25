@@ -176,10 +176,6 @@ input {
 }
 
 .book-grid {
-    border: 1px solid blue;
-}
-
-.book-grid {
     display: flex;
     flex-wrap: wrap;
     width:100%;
@@ -197,7 +193,6 @@ input {
     flex: 1 1 220px;   /* allows shrinking and wrapping */
     max-width: 250px;  /* optional: cap size */
     box-sizing: border-box;
-    border: 1px solid red;
     border-radius: 8px;
     padding: 10px;
     background-color: #E4C59E;
