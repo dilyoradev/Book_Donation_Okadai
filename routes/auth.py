@@ -5,7 +5,7 @@ from models import db, User
 
 auth_bp = Blueprint("auth", __name__)
 
-@auth_bp.route("/signup/", methods=["GET", "POST"])
+@auth_bp.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
         # Grab all form fields
@@ -48,7 +48,7 @@ def signup():
         return render_template("/signup.html", users=users)
 
 
-@auth_bp.route("/login/", methods=["GET", "POST"])
+@auth_bp.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         email = request.form["email"]

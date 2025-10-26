@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, render_template, request, current_app, flash
+from flask import Blueprint, render_template, request, current_app, flash, session, redirect, url_for
 from werkzeug.utils import secure_filename
 from models import db, Book
 from datetime import datetime
@@ -8,8 +8,12 @@ from flask_login import current_user, login_required
 
 donate_bp = Blueprint("donate", __name__)
 
-@donate_bp.route("/donate/", methods=["GET", "POST"])
+@donate_bp.route("/donate", methods=["GET", "POST"])
 def donate():
+    if 'user_id' not in session:
+        flash("Please log in first")
+        return redirect(url_for('auth.login'))
+        
     if request.method == "POST":
         book_name = request.form["book_name"]
         book_author = request.form["book_author"]
