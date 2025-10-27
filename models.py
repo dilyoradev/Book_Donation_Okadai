@@ -4,7 +4,7 @@ from flask_login import UserMixin
 
 db = SQLAlchemy()
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(30), nullable=False)
     last_name = db.Column(db.String(70), nullable=False)
@@ -16,7 +16,7 @@ class User(db.Model):
     # relationship
     books = db.relationship("Book", backref="user", lazy=True)
 
-class Book(db.Model, UserMixin):
+class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     book_name = db.Column(db.String(100), nullable=False)
     book_author = db.Column(db.String(100), nullable=False)
