@@ -9,10 +9,11 @@ from flask_login import current_user, login_required
 donate_bp = Blueprint("donate", __name__)
 
 @donate_bp.route("/donate", methods=["GET", "POST"])
+@login_required
 def donate():
-    if 'user_id' not in session:
-        flash("Please log in first")
-        return redirect(url_for('auth.login'))
+    # if 'user_id' not in session:
+    #     flash("Please log in first")
+    #     return redirect(url_for('auth.login'))
         
     if request.method == "POST":
         book_name = request.form["book_name"]

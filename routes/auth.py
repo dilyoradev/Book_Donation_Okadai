@@ -1,5 +1,6 @@
 # Handles Signup and Login
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
+from flask_login import login_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
 
@@ -67,7 +68,12 @@ def login():
             return redirect(url_for("auth.login"))
 
         # If correct → log them in
+        login_user(user, remember=True)
+
         flash(f"Welcome back, {user.first_name}!", "success")
-        return redirect(url_for("index"))  # or homepage
+
+        # Redirect to dashboard or home
+        next_page = request.args.get("next")
+        return redirect(next_page or url_for("index"))  # or homepage
     else:
         return render_template("login.html")
