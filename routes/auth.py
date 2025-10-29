@@ -80,9 +80,6 @@ def login():
         return render_template("login.html")
 
 @auth_bp.route("/user")
+@login_required
 def user_page():
-    if "user" in session:
-        user = session["user"]
-        return f"<h1>{user}</h1>"
-    else:
-        return redirect(url_for("auth.login"))
+    return f"<h1>{current_user.first_name}</h1>"
