@@ -77,9 +77,17 @@ def login():
         next_page = request.args.get("next")
         return redirect(next_page or url_for("index"))  # or homepage
     else:
+        if "user" in session:
+            return redirect(url_for("auth.user_page"))
+
         return render_template("login.html")
 
 @auth_bp.route("/user")
 @login_required
 def user_page():
     return f"<h1>{current_user.first_name}</h1>"
+
+@auth_bp.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect(url_for("auth.login"))
