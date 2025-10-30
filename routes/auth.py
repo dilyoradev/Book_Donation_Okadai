@@ -67,6 +67,11 @@ def login():
         if not check_password_hash(user.password_hash, password):
             flash("Incorrect password. Please try again.", "danger")
             return redirect(url_for("auth.login"))
+        
+                # If already logged in
+        if "user" in session:
+            flash(f"Already logged in!", "info")
+            return redirect(url_for("auth.user_page"))
 
         # If correct → log them in
         login_user(user, remember=True)
@@ -77,11 +82,9 @@ def login():
         # Redirect to dashboard or home
         next_page = request.args.get("next")
         return redirect(next_page or url_for("index"))  # or homepage
-    else:
-        if "user" in session:
-            return redirect(url_for("auth.user_page"))
-
-        return render_template("login.html")
+        
+    # For GET request → render the login page
+    return render_template("login.html")
 
 @auth_bp.route("/user")
 @login_required
@@ -90,6 +93,9 @@ def user_page():
 
 @auth_bp.route("/logout")
 def logout():
+    if "user" in session:
+        user = session["user"]
+        flash(f"You have been logged out, {user}", "info")
     session.pop("user", None)
     flash("You have been logged out!", "info")
     return redirect(url_for("auth.login"))
