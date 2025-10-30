@@ -52,6 +52,7 @@ def signup():
 @auth_bp.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
+        session.permanent = True
         email = request.form["email"]
         password = request.form["password"]
 

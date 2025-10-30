@@ -2,10 +2,12 @@ from flask import Flask, render_template
 from models import db, User
 from config import Config
 from flask_login import LoginManager
+from datetime import timedelta
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+    app.permanent_session_lifetime = timedelta(days=5)
 
     db.init_app(app)
 
