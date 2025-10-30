@@ -68,7 +68,7 @@ def login():
             flash("Incorrect password. Please try again.", "danger")
             return redirect(url_for("auth.login"))
         
-                # If already logged in
+        # If already logged in
         if "user" in session:
             flash(f"Already logged in!", "info")
             return redirect(url_for("auth.user_page"))
@@ -82,7 +82,7 @@ def login():
         # Redirect to dashboard or home
         next_page = request.args.get("next")
         return redirect(next_page or url_for("index"))  # or homepage
-        
+
     # For GET request → render the login page
     return render_template("login.html")
 
