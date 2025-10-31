@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash, redirect, url_for
 from models import db, User
 from config import Config
 from flask_login import LoginManager
@@ -19,7 +19,11 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
-
+    
+    @login_manager.unauthorized_handler
+    def unauthorized():
+        flash("You are not logged in!", "warning")
+        return redirect(url_for("auth.login"))
 
     # Register blueprints
     from routes.auth import auth_bp
