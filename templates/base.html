@@ -8,12 +8,15 @@
 </head>
 <header class="header">
     <div class="logo">Book Donation</div> 
-    {% if current_user.is_authenticated %}
-    <span>Welcome, {{ current_user.first_name}}! </span>
-    <a href="{{ url_for('auth.logout') }}" type="button" class="button" id="main-loginBtn">Log Out</a> 
-    {% else %}
-    <a href="{{ url_for('auth.login') }}" type="button" class="button" id="main-loginBtn">Log In</a> 
-    {% endif %}
+    <div class="current-user">
+        {% if current_user.is_authenticated %}
+        <!-- <span>Welcome, {{ current_user.first_name}}! </span> -->
+        <div class="current-user-display">{{current_user.first_name}}</div>
+        <a href="{{ url_for('auth.logout') }}" type="button" class="button" id="main-loginBtn">Log Out</a> 
+        {% else %}
+        <a href="{{ url_for('auth.login') }}" type="button" class="button" id="main-loginBtn">Log In</a> 
+        {% endif %}
+    </div>
 </header>
 
 <div class="gobackBtn-wrapper">
