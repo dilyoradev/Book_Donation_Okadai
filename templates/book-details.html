@@ -22,8 +22,11 @@
                 <option value="option-c">Quality C</option>
             </select>
             </div> -->
-            
-              <button class="requestBtn">Request Button</button>
+              {% if current_user.is_authenticated and current_user.id != book.user_id %}
+              <form action="{{ url_for('books.request_books', book_id=book.id) }}" method="POST"> 
+              <button type="submit" class="requestBtn">Request This Book</button>
+              </form>
+              {% endif %}
               </div>
             </div>
 
