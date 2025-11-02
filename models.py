@@ -35,7 +35,10 @@ class BookRequest(db.Model):
     requester_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     status = db.Column(db.String(20), default="pending") #pending #accepted #complete
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-
+    
+    #Relationship
+    book = db.relationship("Book", backref="requests", lazy=True)
+    requester = db.relationship("User", backref="requests", lazy=True)
 
 
 
