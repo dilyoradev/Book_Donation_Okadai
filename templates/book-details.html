@@ -8,7 +8,7 @@
           <h1>Book Details:</h1>
 
             <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="{{ url_for('static', filename = '/img/books/book-a.png' )}}" alt="Book A">
+              <img src="{{ url_for('static', filename = 'img/books/book-a.png' )}}" alt="Book A">
               <div>
               <div class="book-title">{{book.book_name}}</div>
 
@@ -23,7 +23,7 @@
             </select>
             </div> -->
               {% if current_user.is_authenticated and current_user.id != book.user_id %}
-              <form action="{{ url_for('books.request_books', book_id=book.id) }}" method="POST"> 
+              <form action="{{ url_for('books.request_book', book_id=book.id) }}" method="POST"> 
               <button type="submit" class="requestBtn">Request This Book</button>
               </form>
               {% endif %}

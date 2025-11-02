@@ -1,10 +1,40 @@
-from flask import Blueprint, render_template
-from flask_login import login_required
+from flask import Blueprint, render_template, request, redirect, url_for, session, flash
+from flask_login import login_required, current_user, login_user
+
+from models import db, Book, BookRequest
 
 
 books_bp = Blueprint("books", __name__)
 
-@books_bp.route("/book_details/requests/<int:book_id>", method=["POST"])
+@books_bp.route("/book_details/<int:book_id>")
+def book_details(book_id):
+    book = Book.query.get_or_404(book_id)
+    return render_template("book-details.html", book=book)
+
+
+@books_bp.route("/book_details/request/<int:book_id>", methods=["POST"])
 @login_required
-def book_details():
-    return render_template("book-details.html")
+def request_book(book_id):
+    book = Book.query.get_or_404(book_id)
+    
+    #Prevent from requesting own book
+    if book.user_id == current_user.id:
+        flash("You can not request your own book.", "warning")
+        return redirect(url_for('books.book_details', book_id=book.id))
+
+    #Prevent duplicate requests
+    existing_request = BookRequest.query.filter_by(book_id=book.id, requester_id=current_user.id).first()
+    if existing_request:
+        flash("You have already requested this book!", "info")
+        return redirect(url_for('books.book_details', book_id=book.id))
+
+    
+    #Create a new request
+    new_request = BookRequest(book_id=book.id, requester_id=current_user.id)
+    db.session.add(new_request)
+    db.session.commit()
+    flash("Book request sent successfully!", "success")
+
+    return redirect(url_for('books.book_details', book_id=book.id))
+
+
