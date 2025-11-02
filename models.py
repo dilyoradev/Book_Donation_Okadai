@@ -29,6 +29,18 @@ class Book(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True)
     # user = db.Column("User", backref=db.backref("books", lazy=True))
 
+class BookRequest(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=False)
+    requester_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    status = db.Column(db.String(20), default="pending") #pending #accepted #complete
+    timestamp = db.Column(db.TimeDate, default=datetime.utcnow)
+
+
+
+
+
+
 
     def __repr__(self):
         return f"<User {self.email}>"
