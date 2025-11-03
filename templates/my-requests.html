@@ -1,0 +1,26 @@
+{% extends 'base.html %}
+{% block body %}
+<div class="my-requests-page">
+    <div class="my-requests-container">
+        <h1>My Requested Books: </h1>
+        {% if requests %}
+        <div class="request-list">
+            {% for req in requests %}
+            <div class="request-card">
+                <img>
+                <div class="book-info">
+                    <div>Book Title</div>
+                    <div>Book Author</div>
+                    <div>Faculty</div>
+                    <div>Requested Date</div>
+                    <div>Status</div>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>You have not requested any book yet!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

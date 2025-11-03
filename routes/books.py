@@ -38,3 +38,7 @@ def request_book(book_id):
     return redirect(url_for('books.book_details', book_id=book.id))
 
 
+@books_bp.route("/my_requests")
+def my_requests():
+    user_requests = BookRequest.query.filter_by(request_id=current_user.id).all()
+    return render_template("my-requests.html", requests=user_requests)
