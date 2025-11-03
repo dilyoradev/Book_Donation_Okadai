@@ -17,11 +17,9 @@
                 <p class="book-faculty"><b>Faculty:</b> {{ book.faculty }}</p>
                 <p class="book-added"><b>Added on:</b> {{ book.date_added.strftime('%Y-%m-%d') }}</p>
               </div>
-              {% if current_user.is_authenticated and current_user.id != book.user_id %}
               <form action="{{ url_for('books.request_book', book_id=book.id) }}" method="POST"> 
               <button type="submit" class="requestBtn">Request This Book</button>
               </form>
-              {% endif %}
             </div>
 
             <!-- Comment Section -->
