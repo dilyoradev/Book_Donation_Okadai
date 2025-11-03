@@ -40,5 +40,5 @@ def request_book(book_id):
 
 @books_bp.route("/my_requests")
 def my_requests():
-    user_requests = BookRequest.query.filter_by(request_id=current_user.id).all()
+    user_requests = BookRequest.query.filter_by(requester_id=current_user.id).all()
     return render_template("my-requests.html", requests=user_requests)

@@ -1,4 +1,4 @@
-{% extends 'base.html %}
+{% extends 'base.html' %}
 {% block body %}
 <div class="my-requests-page">
     <div class="my-requests-container">
@@ -7,13 +7,13 @@
         <div class="request-list">
             {% for req in requests %}
             <div class="request-card">
-                <img>
+                <img src="{{ url_for('static', filename=req.book.book_image.split('static/')[-1])}}">
                 <div class="book-info">
-                    <div>Book Title</div>
-                    <div>Book Author</div>
-                    <div>Faculty</div>
-                    <div>Requested Date</div>
-                    <div>Status</div>
+                    <div>{{ req.book.book_name }}</div>
+                    <div>{{ req.book.book_author }}</div>
+                    <div>{{ req.book.faculty}}</div>
+                    <div>{{ req.timestamp.strftime('%Y-%m-%d %H:%M') if req.timestamp else 'N/A' }}</div>
+                    <div>{{ req.status}}</div>
                 </div>
             </div> 
             {% endfor %}
