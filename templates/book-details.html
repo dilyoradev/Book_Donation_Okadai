@@ -7,27 +7,21 @@
         <div class="book-details-container">
           <h1>Book Details:</h1>
 
-            <div class="book-card" data-title="Book A" data-faculty="Engineering">
-              <img src="{{ url_for('static', filename = 'img/books/book-a.png' )}}" alt="Book A">
-              <div>
-              <div class="book-title">{{book.book_name}}</div>
-
-<!-- 
-            <div class="form-row">
-              <label for="book-quality">Check available books:</label>
-              <select name="book-quality" id="book-quality">
-                <option value="">Options</option>
-                <option value="option-a">Quality A</option>
-                <option value="option-b">Quality B</option>
-                <option value="option-c">Quality C</option>
-            </select>
-            </div> -->
+            <div class="book-card-details">
+              {% if book.book_image %}
+              <img src="{{ url_for('static', filename=book.book_image.split('static/')[-1]) }}">
+              {% endif %}
+              <div class="book-info">
+                <h2 class="book-title">{{ book.book_name }}</h2>
+                <p class="book-author"><b>Author:</b> {{ book.book_author }}</p>
+                <p class="book-faculty"><b>Faculty:</b> {{ book.faculty }}</p>
+                <p class="book-added"><b>Added on:</b> {{ book.date_added.strftime('%Y-%m-%d') }}</p>
+              </div>
               {% if current_user.is_authenticated and current_user.id != book.user_id %}
               <form action="{{ url_for('books.request_book', book_id=book.id) }}" method="POST"> 
               <button type="submit" class="requestBtn">Request This Book</button>
               </form>
               {% endif %}
-              </div>
             </div>
 
             <!-- Comment Section -->
