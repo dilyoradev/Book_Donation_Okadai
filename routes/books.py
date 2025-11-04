@@ -26,7 +26,7 @@ def request_book(book_id):
     existing_request = BookRequest.query.filter_by(book_id=book.id, requester_id=current_user.id).first()
     if existing_request:
         flash("You have already requested this book!", "info")
-        return redirect(url_for('books.book_details', book_id=book.id))
+        return redirect(url_for('books.my_requests', book_id=book.id))
 
     
     #Create a new request
