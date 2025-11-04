@@ -34,7 +34,6 @@ def request_book(book_id):
     db.session.add(new_request)
     db.session.commit()
     flash("Book request sent successfully!", "success")
-
     return redirect(url_for('books.book_details', book_id=book.id))
 
 

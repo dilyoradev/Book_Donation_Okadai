@@ -192,7 +192,7 @@ input {
     justify-content: space-around;
 }
 
-.book-grid {
+.book-grid, .my-requests-list {
     display: flex;
     flex-wrap: wrap;
     width:100%;
@@ -202,7 +202,7 @@ input {
     padding: 20px;
 }
 
-.book-card {
+.book-card, .my-requests-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -216,7 +216,7 @@ input {
     height: 400px;
 }
 
-.book-card-details {
+.book-card-details, .my-requests-book-info {
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -227,7 +227,7 @@ input {
     height: 500px;
 }
 
-.book-info {
+.book-info,.my-requests-book-info {
     flex-grow: 1;
     display:flex;
     flex-direction: column;
@@ -236,7 +236,7 @@ input {
 
 }
 
-.book-card img, .book-card-details img {
+.book-card img, .book-card-details img, .my-requests-card img {
     height: 60%;
     width: 100%;
     object-fit: contain;
@@ -308,7 +308,7 @@ a {
     text-decoration: none;
 }
 
-.book-details-container .book-card{
+.book-details-container .book-card {
     flex-direction: row;
     margin-top: 20px;
     gap: 20px;
@@ -360,7 +360,6 @@ a {
 }
 
 
-
 .book-quality-container .book-card div {
     flex-direction: column;
     padding: 20px;
@@ -383,4 +382,11 @@ a {
     color: #155724;
     border: 1px solid #c3e6cb;
     margin: 60px;
+}
+
+/* my-requests.html*/
+.my-request-list {
+    display: flex;
+    flex-direction: column;
+
 }
