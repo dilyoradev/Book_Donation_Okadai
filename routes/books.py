@@ -41,3 +41,9 @@ def request_book(book_id):
 def my_requests():
     user_requests = BookRequest.query.filter_by(requester_id=current_user.id).all()
     return render_template("my-requests.html", requests=user_requests)
+
+@books_bp.route("/my_donations")
+@login_required
+def my_donations():
+    user_donations = Book.query.filter_by(user_id=current_user.id).order_by(Book.id.desc()).all()
+    return render_template("my-donations.html", donations=user_donations)
