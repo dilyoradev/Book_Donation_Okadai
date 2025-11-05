@@ -105,6 +105,7 @@ header .button {
     border-radius: 30px;
     text-align: center;
     color: #4A102A;
+    margin: 10px;
 }
 
 .donateBtn{
@@ -186,6 +187,7 @@ input {
     color: whitesmoke;
     font-weight: bold;
 }
+
 
 .current-books {
     display: flex;

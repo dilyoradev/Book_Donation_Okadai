@@ -11,17 +11,35 @@
             <h1>Welcome to Book Donation</h1>
             <h2>What would you like to do today?</h2>
         </div>
+
         <div class="donate-receive">
+            <div>
             <div class="donate">
                 <h1>Donate a Book</h1>
                 <h2>Share your books with others</h2>
                 <a class="donateBtn" href="{{ url_for('donate.donate') }}">Donate</a>
             </div>
-            <div class="receive">
-                <h1>Receive a Book</h1>
-                <h2>Find and request books you need</h2>
-                <a class="receiveBtn" href="{{ url_for('receive.receive') }}">Receive</a>
+            <div class="donate">
+                <h1>My Donations</h1>
+                <h2>List of donated books by you</h2>
+                <a class="donateBtn" href="{{ url_for('books.my_donations') }}">Donations</a>
             </div>
+            </div>
+
+            <div>
+                <div class="receive">
+                    <h1>Receive a Book</h1>
+                    <h2>Find and request books you need</h2>
+                    <a class="receiveBtn" href="{{ url_for('receive.receive') }}">Receive</a>
+               </div>
+            <div class="receive">
+                <h1>Requested Books</h1>
+                <h2>List of requested books by you</h2>
+                <a class="receiveBtn" href="{{ url_for('books.my_requests') }}">Requests</a>
+            </div>
+            </div>
+
+            
         </div>
         </div>
 
