@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 {% block body %}
-<h1>Hhhhhh</h1>
-<!-- <div class="my-requests-page">
+<div class="my-requests-page">
     <div class="my-requests-container">
         <h1>My Donated Books: </h1>
         {% if donations %}
         <div class="my-requests-list">
-            {% for donate in donations %}
+            {% for donation in donations %}
             <div class="my-requests-card">
                 <img src="{{ url_for('static', filename=req.book.book_image.split('static/')[-1])}}">
                 <div class="my-requests-book-info">
-                    <div class="book-title">{{ donate.book.book_name }}</div>
-                    <div class="book-author">{{ donate.book.book_author }}</div>
-                    <div class="book-faculty">{{ donate.book.faculty}}</div>
-                    <div class="book-added">Donate time: {{ donate.timestamp.strftime('%Y-%m-%d %H:%M') if req.timestamp else 'N/A' }}</div>
-                    <!-- <div>Request Status: {{ req.status}}</div> -->
+                    <div class="book-title">{{ donation.book.book_name }}</div>
+                    <div class="book-author">{{ donation.book.book_author }}</div>
+                    <div class="book-faculty">{{ donation.book.faculty}}</div>
+                    <div class="book-added">Donated Date: {{ donate.timestamp.strftime('%Y-%m-%d %H:%M') if req.timestamp else 'N/A' }}</div>
+                    <!-- <div>Request Status: {{ donation.status}}</div> -->
                 </div>
             </div> 
             {% endfor %}
@@ -23,5 +22,5 @@
         <p>You have not donated any book yet!</p>
         {% endif %}
     </div>
-</div> -->
+</div> 
 {% endblock %}
