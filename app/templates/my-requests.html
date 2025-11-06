@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="my-requests-page">
+    <div class="my-requests-container">
+        <h1>My Requested Books: </h1>
+        {% if requests %}
+        <div class="my-requests-list">
+            {% for req in requests %}
+            <div class="my-requests-card">
+                <img src="{{ url_for('static', filename=req.book.book_image.split('static/')[-1])}}">
+                <div class="my-requests-book-info">
+                    <div class="book-title">{{ req.book.book_name }}</div>
+                    <div class="book-author">{{ req.book.book_author }}</div>
+                    <div class="book-faculty">{{ req.book.faculty}}</div>
+                    <div class="book-added">Requested time: {{ req.timestamp.strftime('%Y-%m-%d %H:%M') if req.timestamp else 'N/A' }}</div>
+                    <div>Request Status: {{ req.status}}</div>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>You have not requested any book yet!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

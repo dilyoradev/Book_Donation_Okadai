@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="main donate-page">
+    <div class="donate-page-container">
+        <form class="find-book" action="{{ url_for('donate.donate') }}" method="POST" enctype="multipart/form-data">
+            <h1>Donate a Book</h1>
+            <label for="find-book">Enter Book Details:</label>
+            <input type="text" name="book_name" placeholder="Enter Book Name:" required>
+            <input type="text" name="book_author" placeholder="Enter Book Author" required>
+
+            <div class="form-row">
+              <label for="faculty">Choose Category:</label>
+              <select name="faculty" id="faculty">
+                <option value="">All Faculties</option>
+                <option value="letters">School of Letters</option>
+                <option value="education">School of Education</option>
+                <option value="law">Faculty of Law</option>
+                <option value="economics">Faculty of Economics</option>
+                <option value="sceince">School of Science</option>
+                <option value="medical">Medical School</option>
+                <option value="dental">Dental School</option>
+                <option value="pharm">School of Pharmaceutical Sciences</option>
+                <option value="engineering">School of Engineering</option>
+                <option value="science-technology">School of Environmental Science of Technology</option>
+                <option value="agriculture">School of Agriculture</option>
+                <option value="gdp">Discovery Program for Global Program</option>
+            </select>
+            </div>
+            <div class="form-row">
+            <label for="donate-book">Upload a Book Picture:</label>
+            <input type="file" id="book-image" name="book_image" accept="image/*" required/>
+            </div>
+            <input class="donateBtn" type="submit" value="Donate">
+            
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+  <div class="main signup-page">    
+      <div class="signup-container">
+        
+        <form class="signup" action = "{{ url_for('auth.signup') }}" method = "POST">
+          <h1>Sign Up</h1>
+          <input type="text" id="firstname" name="first_name" placeholder="First Name" required>
+          <input type="text" id="lastname" name="last_name" placeholder="Last Name" required>
+          <!-- Turn Faculty input into <select></select> and include dropdown -->
+          <input type="text" id="faculty" name="faculty" placeholder="Faculty" required>
+          <!-- <input type="number" id="school-year" name="school-year" placeholder="1 st year"> -->
+          <!-- <select type="number" id="school-year" name="school-year" placeholder="Choose your school year:">
+            <option>1st year</option>
+            <option>2nd year</option>
+            <option>3rd year</option>
+          </select> -->
+
+
+
+          <!-- <label for="email">Email:</label> -->
+          <input type="email" id="email" name="email" placeholder="Email" required >
+
+          <!-- <label for="password">Password:</label> -->
+          <input type="password" id="password" name="password" placeholder="Password" required>
+
+          <input class="signupBtn" type="submit" value="Sign Up">
+          <!-- <p class="signup-prompt">Don't have an account? <a href="signup.html">Sign Up</a></p> -->
+       </form>
+     </div>
+
+  </div>
+
+{% endblock %}
