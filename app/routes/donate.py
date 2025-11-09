@@ -1,7 +1,7 @@
 import os
 from flask import Blueprint, render_template, request, current_app, flash, session, redirect, url_for
 from werkzeug.utils import secure_filename
-from models import db, Book
+from models import db, Book, BookRequest
 from datetime import datetime
 from flask_login import current_user, login_required
 
@@ -21,9 +21,16 @@ def donate():
         faculty = request.form["faculty"]
         book_image = request.files["book_image"]
 
-    if book.user_id == current_user.id:
-        flash("You have already donated this book", "info")
-        return redirect(url_for('donate.donate'))
+        # Check is user has already donated the book
+        existing_book = Book.query.filter_by(
+            book_name=book_name,
+            book_author=book_author,
+            user_id=current_user.id
+        ).first()
+
+        if existing_book:
+            flash("You have already donated this book", "info")
+            return redirect(url_for('donate.donate'))
     
         if book_image:
             # Make file safe and store it
