@@ -7,12 +7,16 @@
         <div class="my-requests-list">
             {% for donation in donations %}
             <div class="my-requests-card">
-                <img src="{{ url_for('static', filename=req.book.book_image.split('static/')[-1])}}">
+
+                <img src="{{ url_for('static', filename=donation.book_image.split('static/')[-1])}}">
                 <div class="my-requests-book-info">
-                    <div class="book-title">{{ donation.book.book_name }}</div>
-                    <div class="book-author">{{ donation.book.book_author }}</div>
-                    <div class="book-faculty">{{ donation.book.faculty}}</div>
-                    <div class="book-added">Donated Date: {{ donate.timestamp.strftime('%Y-%m-%d %H:%M') if req.timestamp else 'N/A' }}</div>
+                    <div class="book-title">{{ donation.book_name }}</div>
+                    <div class="book-author">{{ donation.book_author }}</div>
+                    <div class="book-faculty">{{ donation.faculty}}</div>
+                    <div class="book-added">
+                        Donated Date: {{ donation.timestamp.strftime('%Y-%m-%d %H:%M') if donation.timestamp else 'N/A' }}
+                    </div>
+
                     <!-- <div>Request Status: {{ donation.status}}</div> -->
                 </div>
             </div> 

@@ -47,7 +47,7 @@ def donate():
             faculty = faculty,
             book_image = image_path,
             date_added = datetime.now(),
-            # user_id = current_user.id
+            user_id = current_user.id
             )
 
         db.session.add(new_book)
