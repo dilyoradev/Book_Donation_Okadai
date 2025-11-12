@@ -128,14 +128,14 @@ header .button {
 
 }
 
-.login-page, .signup-page, .receive-page, .book-details-page, .book-quality-page, .donate-page, .my-requests-page {
+.login-page, .signup-page, .receive-page, .book-details-page, .book-quality-page, .donate-page, .my-requests-page, .edit-book-page {
 
   justify-content: center;
   align-items: center;
   padding: 30px;
 }
 
-.login-container, .signup-container, .receive-container, .book-details-container, .book-quality-container, .donate-page-container, .my-requests-container {
+.login-container, .signup-container, .receive-container, .book-details-container, .book-quality-container, .donate-page-container, .my-requests-container, .edit-book-container {
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;

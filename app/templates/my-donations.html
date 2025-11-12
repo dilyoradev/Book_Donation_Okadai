@@ -13,12 +13,11 @@
                     <div class="book-title">{{ donation.book_name }}</div>
                     <div class="book-author">{{ donation.book_author }}</div>
                     <div class="book-faculty">{{ donation.faculty}}</div>
-                    <div class="book-added">
-                        Donated Date: {{ donation.timestamp.strftime('%Y-%m-%d %H:%M') if donation.timestamp else 'N/A' }}
+                    <div class="book-added">Donated Date: {{ donation.timestamp.strftime('%Y-%m-%d %H:%M') if donation.timestamp else 'N/A' }}
                     </div>
 
-                    <!-- <div>Request Status: {{ donation.status}}</div> -->
                 </div>
+                <a href="{{ url_for('books.edit_book', book_id=donation.id) }}" class="requestBtn">Edit</a>
             </div> 
             {% endfor %}
         </div>

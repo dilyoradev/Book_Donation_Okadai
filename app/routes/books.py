@@ -48,3 +48,17 @@ def my_requests():
 def my_donations():
     user_donations = Book.query.filter_by(user_id=current_user.id).order_by(Book.id.desc()).all()
     return render_template("my-donations.html", donations=user_donations)
+
+@books_bp.route("/edit_book/<int:book_id>", methods=['GET', 'POST'])
+def edit_book(book_id):
+    book = Book.query.get_or_404(book_id)
+
+    if request.method == 'POST':
+        book.book_name = request.form['book_name']
+        book.book_author = request.form['book_author']
+
+        db.session.commit()
+        flash('Book updated successfully!', 'success')
+        return redirect(url_for('books.my_donations'))
+    
+    return render_template('edit-book.html', book=book)
