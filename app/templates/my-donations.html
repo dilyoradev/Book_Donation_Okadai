@@ -15,9 +15,14 @@
                     <div class="book-faculty">{{ donation.faculty}}</div>
                     <div class="book-added">Donated Date: {{ donation.timestamp.strftime('%Y-%m-%d %H:%M') if donation.timestamp else 'N/A' }}
                     </div>
-
                 </div>
+                
                 <a href="{{ url_for('books.edit_book', book_id=donation.id) }}" class="requestBtn">Edit</a>
+                <form method="POST" action="{{ url_for('books.delete_book', book_id=donation.id)}}">
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete {{ donations.book_name }}')">Delete</button>
+                </form>
+
+            
             </div> 
             {% endfor %}
         </div>

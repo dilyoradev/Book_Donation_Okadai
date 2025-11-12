@@ -62,3 +62,12 @@ def edit_book(book_id):
         return redirect(url_for('books.my_donations'))
     
     return render_template('edit-book.html', book=book)
+
+@books_bp.route("/delete_book/<int:book_id>", methods=['POST'])
+def delete_book(book_id):
+    book = Book.query.get_or_404(book_id)
+
+    db.session.delete(book)
+    db.session.commit()
+    flash("Book deleted successfully!", "success")
+    return redirect(url_for('books.my_donations'))
