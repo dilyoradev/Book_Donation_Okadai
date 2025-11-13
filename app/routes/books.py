@@ -7,6 +7,7 @@ from models import db, Book, BookRequest, Comments
 books_bp = Blueprint("books", __name__)
 
 @books_bp.route("/book_details/<int:book_id>", methods=["GET", "POST"])
+@login_required
 def book_details(book_id):
     book = Book.query.get_or_404(book_id)
 
@@ -15,8 +16,8 @@ def book_details(book_id):
         if comment_content.strip():
             comment = Comments(
                 comment_content=comment_content,
-                user_id = comments.user.id,
-                book_id = comments.book.id
+                user_id = current_user.id,
+                book_id = book.id
                 )
             db.session.add(comment)
             db.session.commit()
