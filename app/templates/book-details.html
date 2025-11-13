@@ -26,19 +26,23 @@
             <div class="comment-section">
               <h2>Comments</h2>
 
-              <form class="comment-form">
-                <textarea name="comment" placeholder="Write your comment here..." required></textarea>
+              <form class="comment-form" action="{{ url_for('books.book_details', book_id=book.id)}}" method="POST">
+                <textarea name="comment_content" placeholder="Write your comment here..." required></textarea>
                 <button type="submit" class="submit-commentBtn">Post Comment</button>
               </form>
 
               <div class="comment-list">
+                {% for comment in book.comments %}
                 <div class="comment">
-                  <p><strong>User 1:</strong>Here will be comment!</p>
+                  <p><strong>{{ comment.user.first_name }}</strong>{{ comment.comment_content }}</p>
+                  <small>{{ comment.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+
                   <div class="comment-actions">
                     <button class="likeBtn">Like</button>
                     <button class="replyBtn">Reply</button>
                   </div>
-                  <div class="comment-replies">
+
+                  <!-- <div class="comment-replies">
                     <div class="reply">
                       <p><strong>User 1:</strong>There will be comment replies!</p>
                       <div class="comment-actions">
@@ -46,8 +50,11 @@
                       <button class="replyBtn">Reply</button>
                   </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
+                {% else %}
+                <p>No comments yet!</p>
+                {% endfor %}
                 
                 <!-- <div class="comment">
                   <p><strong>User 2:</strong>Here will be comment!</p>

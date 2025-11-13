@@ -3,6 +3,9 @@ from models import db, User, Book, BookRequest
 from config import Config
 from flask_login import LoginManager
 from datetime import timedelta
+from flask_migrate import Migrate
+
+migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
@@ -10,6 +13,7 @@ def create_app():
     app.permanent_session_lifetime = timedelta(days=5)
 
     db.init_app(app)
+    migrate.init_app(app, db)
 
     # Flask-Login setup
     login_manager = LoginManager()

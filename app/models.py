@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     # relationship
     books = db.relationship("Book", backref="user", lazy=True)
 
+
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     book_name = db.Column(db.String(100), nullable=False)
@@ -29,6 +30,7 @@ class Book(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True)
     # user = db.Column("User", backref=db.backref("books", lazy=True))
 
+
 class BookRequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=False)
@@ -41,7 +43,17 @@ class BookRequest(db.Model):
     requester = db.relationship("User", backref="requests", lazy=True)
 
 
+class Comments(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    comment_content = db.Column(db.Text, primary_key=False)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    user = db.relationship('User', backref='comments')
+
+    # Link comment to a book
+    book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=True)
+    book = db.relationship('Book', backref='comments')
 
 
 

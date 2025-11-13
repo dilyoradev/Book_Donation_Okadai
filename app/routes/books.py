@@ -1,14 +1,27 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from flask_login import login_required, current_user, login_user
 
-from models import db, Book, BookRequest
+from models import db, Book, BookRequest, Comments
 
 
 books_bp = Blueprint("books", __name__)
 
-@books_bp.route("/book_details/<int:book_id>")
+@books_bp.route("/book_details/<int:book_id>", methods=["GET", "POST"])
 def book_details(book_id):
     book = Book.query.get_or_404(book_id)
+
+    if request.method=="POST":
+        comment_content = request.form['comment_content']
+        if comment_content.strip():
+            comment = Comments(
+                comment_content=comment_content,
+                user_id = comments.user.id,
+                book_id = comments.book.id
+                )
+            db.session.add(comment)
+            db.session.commit()
+            flash("Comment Added!", "success")
+        return redirect(url_for('books.book_details', book_id=book.id))
     return render_template("book-details.html", book=book)
 
 
@@ -71,3 +84,4 @@ def delete_book(book_id):
     db.session.commit()
     flash("Book deleted successfully!", "success")
     return redirect(url_for('books.my_donations'))
+
