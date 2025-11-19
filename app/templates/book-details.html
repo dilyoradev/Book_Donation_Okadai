@@ -42,34 +42,27 @@
                     <button class="likeBtn">Like</button>
                     <button class="replyBtn">Reply</button>
                   </div>
+                  
+                  <form id="reply-form-{{ comment.id }}" class="reply-form" action="{{ url_for('books.reply', comment_id = comment.id) }}" method="POST" style="display:none;">
+                  
+                    <textarea name="reply_content" placeholder="Write your reply..." required></textarea>
+                    <button type="submit">Post Reply</button>
+                  </form>
                   <p>-------------------</p>
-                  <!-- <div class="comment-replies">
-                    <div class="reply">
-                      <p><strong>User 1:</strong>There will be comment replies!</p>
-                      <div class="comment-actions">
-                      <button class="likeBtn">Like</button>
-                      <button class="replyBtn">Reply</button>
+
+                  <div class="comment-replies">
+                    {% for reply in comment.replies %}
+                      <div class="reply">
+                        <p><strong>{{ reply.user.first_name }}</strong>{{ reply.reply_content}}</p>
+                        <small>{{ reply.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+                      </div>
+                    {% endfor %}
                   </div>
-                    </div>
-                  </div> -->
+
                 </div>
                 {% else %}
                 <p>No comments yet!</p>
                 {% endfor %}
-                
-                <!-- <div class="comment">
-                  <p><strong>User 2:</strong>Here will be comment!</p>
-                  <div class="comment-actions">
-                    <button class="likeBtn">Like</button>
-                    <button class="replyBtn">Reply</button>
-                  </div>
-                  <div class="comment-replies">
-                    <div class="reply">
-                      <p><strong>User 1:</strong>There will be comment replies!</p>
-                    </div>
-                  </div>
-                </div> -->
-
               </div>
               
             </div>

@@ -32,6 +32,28 @@ def add_comment(book_id):
 
 
 
+@books_bp.route("/book/<int:comment_id>/reply", methods=["POST"])
+@login_required
+def reply(comment_id):
+    comment = Comments.query.get_or_404(comment_id)
+
+    book = comment.book
+
+    content = request.form.get("reply_content", "").strip()
+
+    if content:
+        new_reply = Reply(
+            reply_content = content,
+            comment_id = comment.id,
+            user_id = current_user.id,
+        )
+
+        db.session.add(reply)
+        db.session.commit()
+        flash("Reply Added!", "success")
+    return redirect(url_for('books.book_details', book_id=book.id))
+
+
 
 @books_bp.route("/book_details/request/<int:book_id>", methods=["POST"])
 @login_required
