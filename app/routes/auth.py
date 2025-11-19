@@ -65,7 +65,7 @@ def login():
         
         if not user:
             flash("No account found with that email.", "danger")
-            return redirect(url_for("auth.login"))
+            return redirect(url_for("auth.signup"))
 
         # If found → check password
         if not check_password_hash(user.password_hash, password):
