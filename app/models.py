@@ -15,6 +15,11 @@ class User(db.Model, UserMixin):
 
     # relationship
     books = db.relationship("Book", backref="user", lazy=True)
+    requests = db.relationship("BookRequest", backref="requester", lazy=True)
+    comments = db.relationship("Comments", backref="user", lazy=True)
+    replies = db.relationship("Reply", backref="user", lazy=True)
+
+
 
 
 class Book(db.Model):
@@ -26,9 +31,11 @@ class Book(db.Model):
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
 
     # link to a user
-    # user = db.relationship("User", backref="books")
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True)
-    # user = db.Column("User", backref=db.backref("books", lazy=True))
+
+    # Relationships
+    requests = db.relationship("BookRequest", backref="book", lazy=True)
+    comments = db.relationship("Comments", backref="book", lazy=True)
 
 
 class BookRequest(db.Model):
@@ -39,8 +46,8 @@ class BookRequest(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     
     #Relationship
-    book = db.relationship("Book", backref="requests", lazy=True)
-    requester = db.relationship("User", backref="requests", lazy=True)
+    # book = db.relationship("Book", backref="requests", lazy=True)
+    # requester = db.relationship("User", backref="requests", lazy=True)
 
 
 class Comments(db.Model):
@@ -49,14 +56,24 @@ class Comments(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    user = db.relationship('User', backref='comments')
+    # user = db.relationship('User', backref='comments')
 
     # Link comment to a book
     book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=True)
-    book = db.relationship('Book', backref='comments')
+    # book = db.relationship('Book', backref='comments')
+
+    replies = db.relationship("Reply", backref="comment", lazy=True)
+
+class Reply(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    reply_content = db.Column(db.Text, primary_key=False)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+    # Relationship to the comments
+    comment_id = db.Column(db.Integer, db.ForeignKey("comments.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
 
 
-    def __repr__(self):
-        return f"<User {self.email}>"
+
 

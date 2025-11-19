@@ -10,20 +10,25 @@ books_bp = Blueprint("books", __name__)
 @login_required
 def book_details(book_id):
     book = Book.query.get_or_404(book_id)
-
-    if request.method=="POST":
-        comment_content = request.form['comment_content']
-        if comment_content.strip():
-            comment = Comments(
-                comment_content=comment_content,
-                user_id = current_user.id,
-                book_id = book.id
-                )
-            db.session.add(comment)
-            db.session.commit()
-            flash("Comment Added!", "success")
-        return redirect(url_for('books.book_details', book_id=book.id))
     return render_template("book-details.html", book=book)
+
+
+@books_bp.route("/book/<int:book_id>/comments", methods=["POST"])
+@login_required
+def add_comment(book_id):
+    content = request.form.get("comment_content", "").strip()
+    if content:
+        comment = Comments(
+            comment_content = comment_content,
+            user_id = current_user.id,
+            book_id = book.id
+        )
+        db.session.add(comment) 
+        db.session.commit()
+        flash("Comment Added!", "success")
+    return redirect(url_for('books.book_details', book_id=book.id)) 
+
+
 
 
 @books_bp.route("/book_details/request/<int:book_id>", methods=["POST"])
