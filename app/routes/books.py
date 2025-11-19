@@ -16,10 +16,12 @@ def book_details(book_id):
 @books_bp.route("/book/<int:book_id>/comments", methods=["POST"])
 @login_required
 def add_comment(book_id):
+    book = Book.query.get_or_404(book_id)
     content = request.form.get("comment_content", "").strip()
+    
     if content:
         comment = Comments(
-            comment_content = comment_content,
+            comment_content = content,
             user_id = current_user.id,
             book_id = book.id
         )

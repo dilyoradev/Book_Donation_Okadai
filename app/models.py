@@ -62,7 +62,7 @@ class Comments(db.Model):
     book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=True)
     # book = db.relationship('Book', backref='comments')
 
-    replies = db.relationship("Reply", backref="comment", lazy=True)
+    replies = db.relationship("Reply", backref="comments", lazy=True)
 
 class Reply(db.Model):
     id = db.Column(db.Integer, primary_key=True)
