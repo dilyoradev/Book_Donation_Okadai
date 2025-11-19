@@ -34,8 +34,7 @@
               <div class="comment-list">
                 {% for comment in book.comments %}
                 <div class="comment">
-                  <p><strong>{{ comment.user.first_name }}:</strong>
-                    <p>{{ comment.comment_content }}</p>
+                  <p><strong>{{ comment.user.first_name }}: </strong>{{ comment.comment_content }}</p>
                   <small>{{ comment.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
 
                   <div class="comment-actions">
@@ -53,7 +52,7 @@
                   <div class="comment-replies">
                     {% for reply in comment.replies %}
                       <div class="reply">
-                        <p><strong>{{ reply.user.first_name }}</strong>{{ reply.reply_content}}</p>
+                        <p><strong>{{ reply.user.first_name }}</strong>: {{ reply.reply_content}}</p>
                         <small>{{ reply.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
                       </div>
                     {% endfor %}

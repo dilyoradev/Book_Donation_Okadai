@@ -59,10 +59,10 @@ class Comments(db.Model):
     # user = db.relationship('User', backref='comments')
 
     # Link comment to a book
-    book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=True)
+    book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=False)
     # book = db.relationship('Book', backref='comments')
 
-    replies = db.relationship("Reply", backref="comments", lazy=True)
+    replies = db.relationship("Reply", backref="comment", lazy=True)
 
 class Reply(db.Model):
     id = db.Column(db.Integer, primary_key=True)

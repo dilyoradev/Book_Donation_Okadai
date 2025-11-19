@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from flask_login import login_required, current_user, login_user
 
-from models import db, Book, BookRequest, Comments
+from models import db, Book, BookRequest, Comments, Reply
 
 
 books_bp = Blueprint("books", __name__)
