@@ -2,8 +2,6 @@
 
 A **Book Donation platform** for students to donate, request, and manage books within their community. Users can share books they no longer need, request books from others, and interact through comments.
 
-> This project is being built as part of a learning journey into **Flask, SQLAlchemy, and full-stack development**.
-
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/flask-3.1.2-orange)](https://flask.palletsprojects.com/)
 [![Issues](https://img.shields.io/github/issues/dilyoradev/Book_Donation_Okadai)](https://github.com/dilyoradev/Book_Donation_Okadai/issues)
@@ -19,7 +17,7 @@ A **Book Donation platform** for students to donate, request, and manage books w
   
 ---
 
-## 📌 Screenshots (Optional)
+## 📌 Screenshots
 
 * **Homepage**
   ![Homepage](app/static/docs/screenshots/homepage_demo.png)
