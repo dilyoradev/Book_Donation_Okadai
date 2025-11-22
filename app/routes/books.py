@@ -31,7 +31,6 @@ def add_comment(book_id):
     return redirect(url_for('books.book_details', book_id=book.id)) 
 
 
-
 @books_bp.route("/book/<int:comment_id>/reply", methods=["POST"])
 @login_required
 def reply(comment_id):

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, flash, redirect, url_for
-from models import db, User, Book, BookRequest
+from models import db, User, Book, BookRequest, Comments, Reply
 from config import Config
 from flask_login import LoginManager
 from datetime import timedelta

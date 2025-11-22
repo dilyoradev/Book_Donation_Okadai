@@ -24,6 +24,11 @@ class User(db.Model, UserMixin):
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    requests = db.relationship(
+    "BookRequest",
+    backref="book",
+    cascade="all, delete-orphan"
+)
     book_name = db.Column(db.String(100), nullable=False)
     book_author = db.Column(db.String(100), nullable=False)
     faculty = db.Column(db.String(50), nullable=False)
