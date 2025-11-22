@@ -4,6 +4,7 @@ A **Book Donation platform** for Okayama University students to donate, request,
 
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/flask-3.1.2-orange)](https://flask.palletsprojects.com/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Issues](https://img.shields.io/github/issues/dilyoradev/Book_Donation_Okadai)](https://github.com/dilyoradev/Book_Donation_Okadai/issues)
 
 ## ✨ Features
