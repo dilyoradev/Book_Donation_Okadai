@@ -39,13 +39,14 @@ class Book(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True)
 
     # Relationships
-    requests = db.relationship("BookRequest", backref="book", lazy=True)
+    requests = db.relationship("BookRequest", backref="book", cascade="all, delete-orphan",passive_deletes=True)
+
     comments = db.relationship("Comments", backref="book", lazy=True)
 
 
 class BookRequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=False)
+    book_id = db.Column(db.Integer, db.ForeignKey('book.id', ondelete="CASCADE"), nullable=False)
     requester_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     status = db.Column(db.String(20), default="pending") #pending #accepted #complete
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
