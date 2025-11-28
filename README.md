@@ -1,7 +1,7 @@
 # Book Donation Website for Okayama University Students
 
-** A campus-focused book donation and requesting platform built for Okayama University students. **
-Students can donate books they no longer need, request available books, communicate through comments, and coordinate meetups — all in one place.
+**A campus-focused book donation and requesting platform built for Okayama University students.**<br />
+Students can donate books they no longer need, request available books, communicate through comments, and coordinate meetups - all in one place.
 
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/flask-3.1.2-orange)](https://flask.palletsprojects.com/)
