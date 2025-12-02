@@ -14,7 +14,7 @@ Digital INSPIRE OI-Start Special Prize - Sankei Shimbun, (Sep 6, 2025)
 - Recognized for an innovative AI-driven project in a digital innovation competition.
 
 [Link](https://www.sankei.com/article/20250925-SRB25VFHPNBQ5L4ASSDTFASTDA/) <br>
-[!image](award.png)
+![image](./award.png)
 
 ---
 
